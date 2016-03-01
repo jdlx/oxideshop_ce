@@ -64,5 +64,8 @@
                 "partial_module_paths": "PARTIAL_MODULE_PATHS"
             }
         }
+    },
+    "require": {
+        "smarty/smarty": "2.*"
     }
 }
