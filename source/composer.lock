@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1340811d25c8cf8196589cf44c3cadcd",
-    "content-hash": "76141fea42e940e4fc7f215dd6c33b2c",
+    "hash": "a1b0fb5bbea38e6572335e2d3cfbb8a4",
+    "content-hash": "ddc5ec576a6ae26e3e787962130f84ea",
     "packages": [
         {
             "name": "smarty/smarty",
@@ -728,7 +728,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OXID-eSales/coding_standards/zipball/ebe261d480234219b472e55d67a0cbd93fe53ce0",
+                "url": "https://api.github.com/repos/OXID-eSales/coding_standards/zipball/be47746bfd0d9cbc0b1c7b3ba27eb05214f6e811",
                 "reference": "dfe0b130d6d5ef41f2ac9b8c876bb391ebb061b8",
                 "shasum": ""
             },
@@ -764,7 +764,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OXID-eSales/testing_library/zipball/abd3c6b2c430f6e1b06b82fd018fdc8a26af245a",
+                "url": "https://api.github.com/repos/OXID-eSales/testing_library/zipball/621969a91e843493c6e56af6c72cb00683d1cb7c",
                 "reference": "abd3c6b2c430f6e1b06b82fd018fdc8a26af245a",
                 "shasum": ""
             },

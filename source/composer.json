@@ -66,6 +66,6 @@
         }
     },
     "require": {
-        "smarty/smarty": "2.*"
+        "smarty/smarty": "2.6.*"
     }
 }
