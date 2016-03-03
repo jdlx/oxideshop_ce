@@ -71,6 +71,10 @@ class Language_Main extends oxAdminDetails
 
         parent::render();
 
+        $languageOptions = $this->getLanguageOptions();
+        $this->_aViewData['languagecountries'] = $languageOptions['countries'];
+        $this->_aViewData['languages'] = $languageOptions['languages'];
+
         $sOxId = $this->_aViewData["oxid"] = $this->getEditObjectId();
         //loading languages info from config
         $this->_aLangData = $this->_getLanguages();
@@ -550,4 +554,49 @@ class Language_Main extends oxAdminDetails
 
         return $this->noJsValidator;
     }
+
+
+    /**
+     * Returns onjects config array
+     *
+     * @return array
+     */
+    protected function getLanguageOptions()
+    {
+        $configuration = array();
+        $menuFilePath = getShopBasePath() . 'Application/views/admin/languages.xml';
+        $countries = array();
+
+        if (file_exists($menuFilePath)) {
+            $domFile = new DOMDocument();
+            $domFile->load($menuFilePath);
+            $xPath = new DOMXPath($domFile);
+            $countryList = $xPath->query('//country');
+            foreach ($countryList as $country) {
+                $isoalpha2 = $country->getAttribute('isoalpha2');
+                $country = oxNew('oxCountry');
+                $country->load($country->getIdByCode($isoalpha2));
+                $countries[$isoalpha2] = $country->oxcountry__oxtitle->value;
+                $languageList = $xPath->query("//country [@isoalpha2='$isoalpha2']/language");
+
+                foreach ($languageList as $variant){
+                    $language = (string) $variant->getAttribute('language');
+                    $configuration[$isoalpha2][$language] = array('country_name'      => $country->oxcountry__oxtitle->value,
+                                                                  'country_isoalpha2' => $isoalpha2,
+                                                                  'id'                => (string) $variant->getAttribute('id'),
+                                                                  'abbreviation'      => (string) $variant->getAttribute('abbreviation'),
+                                                                  'variant'           => (string) $variant->getAttribute('variant'),
+                                                                  'language'          => $language);
+                }
+            }
+        }
+
+        $languageOptions = array('countries' => $countries,
+                                 'languages' => $configuration);
+
+        return $languageOptions;
+    }
+
+
+
 }
